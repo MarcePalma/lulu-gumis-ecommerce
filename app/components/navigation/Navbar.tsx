@@ -21,7 +21,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-20 bg-white shadow-lg">
       <div className="container flex items-center justify-between mx-auto px-6 py-4">
         <Link className="flex items-center" href={'/'}>
-        <InstagramIcon/>
+          <InstagramIcon />
           <Image
             className="rounded-full"
             width={80}
@@ -55,7 +55,8 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-            {/* @ts-expect-error */} 
+      {/* @ts-expect-error: Ignorar el error porque este componente aún no tiene tipos definidos */}
+
       {navbarOpen && <MenuOverlay links={navLinks} />}
     </nav>
   );

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Main() {
     return (
         <section className='py-24'>
@@ -16,8 +18,18 @@ export default function Main() {
                         Tejidos personalizados hecho a mano con mucho lov♡.
                     </p>
                 </header>
+                <main>
+                    <section className="flex justify-center items-center">
+                        <Image
+                            className="center"
+                            width={600}
+                            height={600}
+                            src="/images/Ejemplo.webp"
+                            alt="ejemplo"
+                        />
+                    </section>
+                </main>
             </div>
         </section>
-    )
+    );
 }
-

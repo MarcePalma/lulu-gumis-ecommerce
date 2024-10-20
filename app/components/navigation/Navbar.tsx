@@ -5,23 +5,42 @@ import NavLink from './NavLink';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
 import Image from 'next/image';
-import { InstagramIcon } from '@/app/utils/icons/icons';
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
 
   const navLinks = [
     {
-      title: `CATALOGO`,
+      title: 'CATALOGO',
       path: '/catalogo',
+      options: [
+        { title: 'Amigurumis', path: '/catalogo/opcion1' },
+        { title: 'Flores', path: '/catalogo/opcion2' },
+        { title: 'Ropa', path: '/catalogo/opcion3' },
+      ],
     },
   ];
+
+  const handleMouseEnter = () => {
+    if (hoverTimeout) {
+      clearTimeout(hoverTimeout);
+    }
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setDropdownOpen(false);
+    }, 200);
+    setHoverTimeout(timeout);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-20 bg-white shadow-lg">
       <div className="container flex items-center justify-between mx-auto px-6 py-4">
         <Link className="flex items-center" href={'/'}>
-          <InstagramIcon />
           <Image
             className="rounded-full"
             width={80}
@@ -44,11 +63,16 @@ export default function Navbar() {
         <div className={`w-full md:flex md:items-center md:w-auto ${navbarOpen ? 'block' : 'hidden'}`}>
           <ul className="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0">
             {navLinks.map((link, index) => (
-              <li key={index}>
+              <li
+                key={index}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+              >
                 <NavLink
-                  className="ml-3 text-2xl font-bold text-gray-800 hover:text-pink-500 transition-colors duration-300"
                   href={link.path}
                   title={link.title}
+                  options={dropdownOpen ? link.options : []}
+                  onHover={handleMouseEnter}
                 />
               </li>
             ))}

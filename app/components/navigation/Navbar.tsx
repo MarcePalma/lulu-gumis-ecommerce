@@ -4,56 +4,59 @@ import Link from 'next/link';
 import NavLink from './NavLink';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
-import Image from 'next/image.js';
-
+import Image from 'next/image';
+import { InstagramIcon } from '@/app/utils/icons/icons';
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   const navLinks = [
     {
-      title: `Catalogo`,
+      title: `CATALOGO`,
       path: '/catalogo',
     },
-
   ];
 
   return (
-    <nav className="fixed mx-auto border border-[#ff0000] top-0 left-0 right-0 z-10 bg-[#fff] bg-opacity-100">
-      <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
-        <Link href={'/'} className="text-2xl md:text-5xl text-black font-semibold flex items-center justify-between">
-          <Image className="mx-auto" width={100} height={100} src="/images/logo.webp" alt="Logo" />
+    <nav className="fixed top-0 left-0 right-0 z-20 bg-white shadow-lg">
+      <div className="container flex items-center justify-between mx-auto px-6 py-4">
+        <Link className="flex items-center" href={'/'}>
+        <InstagramIcon/>
+          <Image
+            className="rounded-full"
+            width={80}
+            height={80}
+            src="/images/logo.webp"
+            alt="Logo"
+          />
+          <span className="ml-3 text-2xl font-bold text-gray-800 hover:text-pink-500 transition-colors duration-300">
+            Amigurumis
+          </span>
         </Link>
-        <div className="mobile-menu block md:hidden">
-          {!navbarOpen ? (
-            <button title='boton de menu' name='Boton de Menu'
-              onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-black hover:text-pink-500 hover:border-white"
-            >
-              <Bars3Icon className="h-5 w-5" />
-            </button>
-          ) : (
-            <button title='boton de menu' name='Boton de Menu'
-              onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-black hover:text-pink-500 hover:border-white"
-            >
-              <XMarkIcon className='h-5 w-5' />
-            </button>
-          )}
+        <div className="flex items-center md:hidden">
+          <button
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            className="p-2 text-gray-800 hover:text-pink-500 focus:outline-none transition-colors duration-300"
+          >
+            {!navbarOpen ? <Bars3Icon className="h-6 w-6" /> : <XMarkIcon className="h-6 w-6" />}
+          </button>
         </div>
-        <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+        <div className={`w-full md:flex md:items-center md:w-auto ${navbarOpen ? 'block' : 'hidden'}`}>
+          <ul className="flex flex-col md:flex-row md:space-x-8 mt-4 md:mt-0">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <NavLink href={link.path} title={link.title} />
+                <NavLink
+                  className="ml-3 text-2xl font-bold text-gray-800 hover:text-pink-500 transition-colors duration-300"
+                  href={link.path}
+                  title={link.title}
+                />
               </li>
             ))}
           </ul>
         </div>
       </div>
-      {/* @ts-ignore */}
-      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
-
+            {/* @ts-ignore */}
+      {navbarOpen && <MenuOverlay links={navLinks} />}
     </nav>
   );
 }

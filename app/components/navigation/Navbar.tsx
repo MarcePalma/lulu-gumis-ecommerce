@@ -45,7 +45,7 @@ export default function Navbar() {
             className="rounded-full"
             width={80}
             height={80}
-            src="/images/logo.webp"
+            src="/images/LOGO.webp"
             alt="Logo"
           />
           <span className="ml-3 text-2xl font-bold text-gray-800 hover:text-pink-500 transition-colors duration-300">

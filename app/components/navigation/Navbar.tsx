@@ -55,7 +55,7 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-            {/* @ts-ignore */}
+            {/* @ts-expect-error */} 
       {navbarOpen && <MenuOverlay links={navLinks} />}
     </nav>
   );

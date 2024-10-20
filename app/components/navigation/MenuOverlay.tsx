@@ -1,9 +1,13 @@
 'use client'
 import React from 'react';
 import NavLink from './NavLink';
+import path from 'path';
 
 const links = [
   { path: '/catalogo', title: 'Catalogo' },
+  { path: '/catalogo/amigurumis', title: 'Amigurumis' },
+  { path: '/catalogo/flores', title: 'Flores' },
+  { path: '/catalogo/ropa', title: 'Ropa' },
 ];
 
 export default function MenuOverlay() {

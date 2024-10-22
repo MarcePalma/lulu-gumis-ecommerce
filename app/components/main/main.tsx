@@ -5,6 +5,7 @@ import Link from "next/link";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import InstagramButton from "../navigation/IGButton";
 
 export default function Main() {
     const settings = {
@@ -62,6 +63,7 @@ export default function Main() {
                     </div>
                 </main>
             </div>
+            <InstagramButton />
         </section>
     );
 }

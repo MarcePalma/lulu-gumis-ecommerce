@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import Image from "next/image";
 import Link from "next/link";
@@ -26,23 +26,23 @@ export default function Main() {
     ];
 
     return (
-        <section className='py-24 px-4 lg:px-16' style={{ backgroundColor: '#fff' }}>
-            <div className="mx-auto py-8 sm:py-12 lg:py-16">
+        <section className='pt-20 py-17 px-4 lg:px-16' style={{ backgroundColor: '#fff' }}>
+            <div className="mx-auto py-6 sm:py-8 lg:py-12">
                 <header className="text-center">
-                    <h1 className="text-white mb-4 text-4xl sm:text-5xl lg:text-4xl lg:leading-normal font-extrabold">
+                    <h1 className="text-white mb-2 text-3xl sm:text-4xl lg:text-3xl lg:leading-normal font-extrabold">
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-pink-600 z-10">
                             Lulu Gumis
                         </span>
                     </h1>
-                    <p className="mx-auto mt-4 max-w-md text-black font-semibold">
+                    <p className="mx-auto mt-2 max-w-md text-black font-semibold text-sm sm:text-base">
                         Luli 🌷| Amigurumis, flores eternas, tejidos a crochet. Shopping & retail
                         《ꕤ》➫ [ Agenda abierta ✨]༄ 📍Concepción, Chile. Tejidos personalizados hechos a mano con mucho lov♡.
                     </p>
-                    <button className="mt-6 px-6 py-2 bg-pink-500 text-white font-bold rounded-lg shadow hover:bg-pink-600 transition duration-300">
+                    <button className="mt-4 px-5 py-2 bg-pink-500 text-white font-bold rounded-lg shadow hover:bg-pink-600 transition duration-300 text-sm sm:text-base">
                         Ver Catálogo
                     </button>
                 </header>
-                <main className="flex items-center justify-center mt-8">
+                <main className="flex items-center justify-center mt-6">
                     <div className="w-full max-w-3xl">
                         <Link href="/catalogo">
                             <Slider {...settings} className="carousel-container">

@@ -4,5 +4,6 @@ export interface NavLinkProps {
     className?: string;
 }
 export interface MenuOverlayProps {
-  links: { title: string; path: string }[];     
+  links: { title: string; path: string }[];
+  onClose: () => void;     
 }

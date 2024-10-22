@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import NavLink from './NavLink';
@@ -16,9 +16,9 @@ export default function Navbar() {
       title: 'CATALOGO',
       path: '/catalogo',
       options: [
-        { title: 'Amigurumis', path: '/catalogo/opcion1' },
-        { title: 'Flores', path: '/catalogo/opcion2' },
-        { title: 'Ropa', path: '/catalogo/opcion3' },
+        { title: 'Amigurumis', path: '/catalogo/amigurumis' },
+        { title: 'Flores', path: '/catalogo/flores' },
+        { title: 'Ropa', path: '/catalogo/ropa' },
       ],
     },
   ];
@@ -57,7 +57,7 @@ export default function Navbar() {
             onClick={() => setNavbarOpen(!navbarOpen)}
             className="p-2 text-gray-800 hover:text-pink-500 focus:outline-none transition-colors duration-300"
           >
-            {!navbarOpen ? <Bars3Icon className="h-6 w-6" /> : <XMarkIcon className="h-6 w-6" />}
+            {!navbarOpen ? <Bars3Icon className="h-6 w-6" /> : <XMarkIcon className="h-6 w-6 text-gray-800" />}
           </button>
         </div>
         <div className={`w-full md:flex md:items-center md:w-auto ${navbarOpen ? 'block' : 'hidden'}`}>
@@ -79,9 +79,9 @@ export default function Navbar() {
           </ul>
         </div>
       </div>
-      {/* @ts-expect-error: Ignorar el error porque este componente aún no tiene tipos definidos */}
 
-      {navbarOpen && <MenuOverlay links={navLinks} />}
+      {navbarOpen && <MenuOverlay links={navLinks} onClose={() => setNavbarOpen(false)} />}
+
     </nav>
   );
 }

@@ -1,7 +1,6 @@
 'use client'
 import React from 'react';
 import NavLink from './NavLink';
-import path from 'path';
 
 const links = [
   { path: '/catalogo', title: 'Catalogo' },

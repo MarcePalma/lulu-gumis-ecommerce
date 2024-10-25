@@ -6,9 +6,9 @@ const fileNames = Array.from({ length: 43 }, (_, i) => (i + 1).toString());
 const checkFileExists = async (url: string) => {
     try {
         const response = await fetch(url);
-        return response.ok; // Devuelve true si el archivo existe
+        return response.ok;
     } catch {
-        return false; // Devuelve false si hubo un error en la solicitud
+        return false;
     }
 };
 
@@ -33,7 +33,7 @@ const TestimonialsCarousel = () => {
             const loadedTestimonials = await Promise.all(
                 fileNames.map(async (fileName) => await getFileType(fileName))
             );
-            setTestimonials(loadedTestimonials.filter(testimonial => testimonial.type !== 'unknown')); // Filtrar los desconocidos
+            setTestimonials(loadedTestimonials.filter(testimonial => testimonial.type !== 'unknown'));
         };
 
         loadTestimonials();

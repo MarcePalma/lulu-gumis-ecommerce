@@ -6,7 +6,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import InstagramButton from "../navigation/IGButton";
-import Router, { useRouter } from "next/router";
 import TestimonialsCarousel from "./testimonioscarousel";
 
 export default function Main() {

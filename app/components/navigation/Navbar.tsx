@@ -38,7 +38,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-20 bg-white shadow-lg">
+    <nav className="fixed top-0 left-0 right-0 z-20 bg-pink-200 shadow-lg">
       <div className="container flex items-center justify-between mx-auto px-6 py-4">
         <Link className="flex items-center" href={'/'}>
           <Image

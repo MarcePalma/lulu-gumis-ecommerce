@@ -1,23 +1,33 @@
 'use client';
 
-import Link from 'next/link';
+interface SubNavbarProps {
+    setSelectedCategory: (category: string | undefined) => void;
+}
 
-const categories = [
-    { path: '/catalogo/amigurumis', title: 'Amigurumis' },
-    { path: '/catalogo/flores', title: 'Flores' },
-    { path: '/catalogo/ropa', title: 'Ropa' },
-];
+const SubNavbar: React.FC<SubNavbarProps> = ({ setSelectedCategory }) => {
+    const categories = [
+        { title: 'Amigurumis' },
+        { title: 'Flores' },
+        { title: 'Ropa' },
+    ];
 
-const SubNavbar = () => {
     return (
         <div className="bg-white shadow-md"> 
             <div className="container mx-auto flex justify-between items-center py-2 px-4">
+                <span 
+                    onClick={() => setSelectedCategory(undefined)} 
+                    className="text-gray-800 hover:text-pink-500 transition-colors duration-300 cursor-pointer"
+                >
+                    Todos
+                </span>
                 {categories.map((category, index) => (
-                    <Link key={index} href={category.path}>
-                        <span className="text-gray-800 hover:text-pink-500 transition-colors duration-300 text-base">
-                            {category.title}
-                        </span>
-                    </Link>
+                    <span 
+                        key={index} 
+                        onClick={() => setSelectedCategory(category.title)}
+                        className="text-gray-800 hover:text-pink-500 transition-colors duration-300 cursor-pointer"
+                    >
+                        {category.title}
+                    </span>
                 ))}
             </div>
         </div>

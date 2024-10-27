@@ -1,17 +1,20 @@
-import PostCards from "./post";
+"use client"
+import { useState } from 'react';
+import PostCards from './post';
+import SubNavbar from './subnavbar';
 
 export default function Catalogo() {
-    return (
-        <div className="text-center px-4 lg:px-16 py-8">
-            <h1 className="text-white mb-8 text-3xl sm:text-4xl lg:text-4xl lg:leading-normal font-extrabold">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-pink-600 z-10">
-                    Catálogo
-                </span>
-            </h1>
-            <main>
-                <PostCards />
-            </main>
+    const [selectedCategory, setSelectedCategory] = useState<string | undefined>(undefined);
 
+    return (
+        <div>
+            <div className="py-20 mt-20">
+                <SubNavbar setSelectedCategory={setSelectedCategory} />
+            </div>
+
+            <div className="py-20 mt-20">
+                <PostCards category={selectedCategory} />
+            </div>
         </div>
     );
 }

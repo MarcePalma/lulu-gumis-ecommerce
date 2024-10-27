@@ -6,12 +6,8 @@ export default function Page() {
     return (
         <div>
             <header>
-                <Navbar />
-                <section className="py-20 mt-10">
-                    <SubNavbar />
-                </section>
+                <Navbar />  
             </header>
-
             <main>
                 <Catalogo />
             </main>

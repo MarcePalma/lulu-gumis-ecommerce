@@ -6,7 +6,10 @@ import Dashboard from '../components/dashboard/dashboard';
 function Page() {
     return (
         <div>
-            <Dashboard />
+            <div className='mt-20'>
+                <Dashboard />
+            </div>
+
         </div>
     )
 }

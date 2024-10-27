@@ -15,11 +15,12 @@ datasource db {
 
 model Post {
   id        Int     @id @default(autoincrement())
+  name      String  // Agregado: Nombre del producto
   image     String
   price     Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  categories  Category[] @relation("PostCategories")
+  categories Category[] @relation("PostCategories")
 }
 
 model Category {

@@ -10,6 +10,20 @@ export interface MenuOverlayProps {
 
 export type Testimonial = {
   id: number;
-  type: 'image' | 'video' | 'unknown'; // Asegúrate de usar tipos literales
+  type: 'image' | 'video' | 'unknown'; 
   src: string;
 };
+
+export interface Post {
+  id: number;
+  image: string;
+  name: string;
+  price: number;
+}
+
+export interface UserContextType {
+  token: string | null;
+  login: (token: string) => void;
+  logout: () => void;
+  isAuthenticated: boolean;
+}

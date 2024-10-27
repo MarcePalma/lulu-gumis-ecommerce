@@ -1,14 +1,11 @@
-import { NextApiRequest, NextApiResponse } from 'next'
-import { PrismaClient } from '@prisma/client'
+import { NextResponse } from 'next/server';
+import { getItemsFromDatabase } from '@/app/lib/database';
 
-const prisma = new PrismaClient()
-
-export default async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET() {
     try {
-        const posts = await prisma.post.findMany()
-        res.status(200).json(posts);
+        const items = await getItemsFromDatabase();
+        return NextResponse.json(items);
     } catch (error) {
-        console.error("Error fetching posts", error);
-        res.status(500).json({ error: 'Internal server error' })
+        return NextResponse.json({ message: 'Error al obtener los productos' }, { status: 500 });
     }
 }

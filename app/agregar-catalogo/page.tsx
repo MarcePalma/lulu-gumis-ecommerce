@@ -1,7 +1,13 @@
-export default function Page(){
-    return(
+import AddPost from "../components/catalogo/addpost";
+import Footer from "../components/footer/Footer";
+
+export default function Page() {
+    return (
         <div>
-            <h1>Hola soy la pagina para agregar posts al catalogo!!</h1>
+            <div className="py-20 mt-20"> 
+                <AddPost />
+            </div>
+            <Footer/>
         </div>
     )
 }

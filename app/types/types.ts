@@ -27,3 +27,4 @@ export interface UserContextType {
   logout: () => void;
   isAuthenticated: boolean;
 }
+

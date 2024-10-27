@@ -9,7 +9,6 @@ function Page() {
             <div className='mt-20'>
                 <Dashboard />
             </div>
-
         </div>
     )
 }

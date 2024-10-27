@@ -15,11 +15,6 @@ export default function Dashboard() {
 
                 <ul className="mt-6 space-y-1">
                     <li>
-                        <Link href="/turnos" className="block rounded-lg px-4 py-2 text-sm font-medium text-pink-500 hover:bg-gray-100 hover:text-gray-700">
-                            Turnos
-                        </Link>
-                    </li>
-                    <li>
                         <Link
                             href="/agregar-publicaciones"
                             className="block rounded-lg px-4 py-2 text-sm font-medium text-pink-500 hover:bg-gray-100 hover:text-gray-700"
@@ -31,21 +26,7 @@ export default function Dashboard() {
                         <button
                             className="block rounded-lg px-4 py-2 text-sm font-medium text-pink-500 hover:bg-gray-100 hover:text-gray-700"
                         >
-                            Agregar Horarios
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            className="block rounded-lg px-4 py-2 text-sm font-medium text-pink-500 hover:bg-gray-100 hover:text-gray-700"
-                        >
-                            Ver Horarios
-                        </button>
-                    </li>
-                    <li>
-                        <button
-                            className="block rounded-lg px-4 py-2 text-sm font-medium text-pink-500 hover:bg-gray-100 hover:text-gray-700"
-                        >
-                            Agendar una Cita
+                            Editar Publicaciones
                         </button>
                     </li>
                 </ul>

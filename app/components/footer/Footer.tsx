@@ -4,10 +4,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Footer() {
-
-
   return (
-    <nav className=" z-20 shadow-lg">
+    <footer className="z-20 shadow-lg">
       <div className="container flex items-center justify-between mx-auto px-6 py-4">
         <Link className="flex items-center" href={'/'}>
           <Image
@@ -21,7 +19,7 @@ export default function Footer() {
             Amigurumis
           </span>
         </Link>
-        </div>
-    </nav>
+      </div>
+    </footer>
   );
 }

@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="z-20 shadow-lg">
+    <footer className="fixed bottom-0 left-0 w-full z-20 shadow-lg">
       <div className="container flex items-center justify-between mx-auto px-6 py-4">
         <Link className="flex items-center" href={'/'}>
           <Image

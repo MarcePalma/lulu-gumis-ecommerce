@@ -7,6 +7,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import InstagramButton from "../navigation/IGButton";
 import TestimonialsCarousel from "./testimonioscarousel";
+import Loader from "../loader/loader";
+import { useState, useEffect } from "react";
 
 export default function Main() {
 

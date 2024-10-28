@@ -51,8 +51,8 @@ export const useUser = () => {
 };
 
 // Higher Order Component para proteger rutas
-export function withAuth(Component: React.FC) {
-    return function AuthenticatedComponent(props: any) {
+export function withAuth<T extends object>(Component: React.FC<T>) {
+    return function AuthenticatedComponent(props: T) {
         const { isAuthenticated } = useUser();
         if (!isAuthenticated) {
             return (

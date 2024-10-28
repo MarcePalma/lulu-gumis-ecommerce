@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Post } from '@/app/types/types';
+import Image from 'next/image';
 
 export default function EditarPublicaciones() {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -69,7 +70,7 @@ export default function EditarPublicaciones() {
             <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {posts.map(post => (
                     <li key={post.id} className="flex flex-col items-center justify-between p-4 border border-pink-300 rounded-lg shadow-lg bg-white transition-transform transform hover:scale-105">
-                        <img src={post.image} alt={post.name} className="w-full h-48 object-cover rounded-t-lg" />
+                        <Image src={post.image} alt={post.name} className="w-full h-48 object-cover rounded-t-lg" />
                         <div className="mt-2 text-center">
                             <h3 className="font-bold text-lg text-pink-600">{post.name}</h3>
                             <p className="text-gray-600">Precio: ${post.price}</p>

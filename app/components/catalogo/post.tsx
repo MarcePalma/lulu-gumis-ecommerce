@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Post } from '@/app/types/types';
+import Image from 'next/image';
 
 interface PostCardsProps {
     category: string | undefined;
@@ -33,7 +34,7 @@ export default function PostCards({ category }: PostCardsProps) {
             {posts && posts.length > 0 ? (
                 posts.map((post) => (
                     <a key={post.id} href="#" className="group relative block overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 max-w-xs mx-auto">
-                        <img
+                        <Image
                             src={post.image}
                             alt={post.name}
                             className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"

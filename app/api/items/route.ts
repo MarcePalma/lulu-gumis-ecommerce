@@ -8,7 +8,7 @@ export async function GET(request: Request) {
     try {
         const items = await getItemsFromDatabase(category);
         return NextResponse.json(items);
-    } catch (error) {
+    } catch {
         return NextResponse.json({ message: 'Error al obtener los productos' }, { status: 500 });
     }
 }

@@ -1,4 +1,5 @@
-"use client";
+'use client';
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Post } from '@/app/types/types';
@@ -33,10 +34,17 @@ export default function PostCards({ category }: PostCardsProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 p-4">
             {posts && posts.length > 0 ? (
                 posts.map((post) => (
-                    <a key={post.id} href="#" className="group relative block overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 max-w-xs mx-auto">
+                    <motion.a 
+                        key={post.id} 
+                        href="#" 
+                        className="group relative block overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 max-w-xs mx-auto"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5, delay: post.id * 0.1 }} // retrasa cada post
+                    >
                         <Image
-                        width={600}
-                        height={400}
+                            width={600}
+                            height={400}
                             src={post.image}
                             alt={post.name}
                             className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"
@@ -45,7 +53,7 @@ export default function PostCards({ category }: PostCardsProps) {
                             <h3 className="mt-4 text-lg font-semibold text-gray-900">{post.name}</h3>
                             <p className="mt-1.5 text-sm text-gray-700">${post.price}</p>
                         </div>
-                    </a>
+                    </motion.a>
                 ))
             ) : (
                 <p>No hay productos en esta categoría.</p>

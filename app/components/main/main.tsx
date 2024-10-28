@@ -1,5 +1,5 @@
 'use client';
-
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import Slider from "react-slick";
@@ -29,7 +29,12 @@ export default function Main() {
     ];
 
     return (
-        <section className='pt-20 py-17 px-4 lg:px-16'>
+        <motion.section
+            className='pt-20 py-17 px-4 lg:px-16'
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+        >
             <div className="mx-auto py-6 sm:py-8 lg:py-12">
                 <header className="text-center">
                     <h1 className="sparkling-title text-white mb-2 text-3xl sm:text-4xl lg:text-3xl lg:leading-normal font-extrabold">
@@ -112,6 +117,6 @@ export default function Main() {
                     }
                 }
             `}</style>
-        </section>
+        </motion.section>
     );
 }

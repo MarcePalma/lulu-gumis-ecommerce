@@ -20,6 +20,7 @@ model Post {
   price     Float
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  category  String? 
+  category  String?
+  imagePublicId  String?
 }
 

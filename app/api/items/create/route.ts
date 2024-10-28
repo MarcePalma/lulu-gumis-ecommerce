@@ -4,19 +4,18 @@ const prisma = new PrismaClient();
 
 export async function POST(req: Request) {
     try {
-        const { name, image, price, categories } = await req.json();
+        const { name, image, price, category, publicId } = await req.json(); 
 
         const newPost = await prisma.post.create({
             data: {
                 name,
                 image,
                 price: Number(price),
-                categories: {
-                    connect: categories.map((name: string) => ({ name })),
-                },
+                category,
+                imagePublicId: publicId, 
             },
         });
-        
+
         return new Response(JSON.stringify(newPost), {
             status: 200,
             headers: { 'Content-Type': 'application/json' },

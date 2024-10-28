@@ -16,9 +16,11 @@ export type Testimonial = {
 
 export interface Post {
   id: number;
-  image: string;
   name: string;
   price: number;
+  category: string;
+  image: string;
+  imagePublicId?: string; 
 }
 
 export interface UserContextType {

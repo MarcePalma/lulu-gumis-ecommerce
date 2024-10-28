@@ -5,11 +5,14 @@ import NavLink from './NavLink';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
 import Image from 'next/image';
+import { useUser } from '@/app/userContext/userContext';
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
+
+  const { isAuthenticated } = useUser();
 
   const navLinks = [
     {
@@ -76,12 +79,21 @@ export default function Navbar() {
                 />
               </li>
             ))}
+            {isAuthenticated && (
+              <li>
+                <Link
+                  href="/dashboard"
+                  className="text-lg font-medium text-gray-800 hover:text-pink-500 transition duration-300 ease-in-out"
+                >
+                  DASHBOARD
+                </Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>
 
       {navbarOpen && <MenuOverlay links={navLinks} onClose={() => setNavbarOpen(false)} />}
-
     </nav>
   );
 }

@@ -68,7 +68,7 @@ export default function Main() {
                 </main>
                 <section className="about-us py-8">
                     <div className="container mx-auto">
-                        <h2 className="text-3xl font-bold text-gray-800 mb-4 text-center">
+                        <h2 className="text-center text-3xl font-bold text-gray-800 mb-4">
                             Sobre Lulu Gumis
                         </h2>
                         <p className="text-center text-lg max-w-3xl mx-auto">

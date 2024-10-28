@@ -35,6 +35,8 @@ export default function PostCards({ category }: PostCardsProps) {
                 posts.map((post) => (
                     <a key={post.id} href="#" className="group relative block overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 max-w-xs mx-auto">
                         <Image
+                        width={600}
+                        height={400}
                             src={post.image}
                             alt={post.name}
                             className="h-80 w-full object-cover transition duration-500 group-hover:scale-105"

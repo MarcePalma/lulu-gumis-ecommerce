@@ -3,6 +3,7 @@ import React from 'react';
 import NavLink from './NavLink';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { MenuOverlayProps } from '@/app/types/types';
+import { useUser } from '@/app/userContext/userContext';
 
 const links = [
   { path: '/catalogo', title: 'Catalogo' },
@@ -12,6 +13,8 @@ const links = [
 ];
 
 export default function MenuOverlay({ onClose }: MenuOverlayProps) {
+  const { isAuthenticated } = useUser();
+
   return (
     <div className='fixed inset-0 bg-pink-200 bg-opacity-95 z-30 flex items-center justify-center shadow-lg transition-transform transform duration-300 ease-in-out translate-y-0'>
       <button
@@ -30,6 +33,15 @@ export default function MenuOverlay({ onClose }: MenuOverlayProps) {
             />
           </li>
         ))}
+        {isAuthenticated && (
+          <li>
+            <NavLink
+              href="/dashboard"
+              title="Dashboard"
+              className="ml-3 text-3xl font-bold text-gray-800 hover:text-pink-600 transition-colors duration-300"
+            />
+          </li>
+        )}
       </ul>
     </div>
   );

@@ -7,14 +7,12 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
 import Image from 'next/image';
 import { useUser } from '@/app/userContext/userContext';
-import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
     const { isAuthenticated } = useUser();
-    const router = useRouter();
 
     const navLinks = [
         {

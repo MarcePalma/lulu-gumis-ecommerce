@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Testimonial } from '@/app/types/types';
+import Image from 'next/image';
 
 const fileNames = Array.from({ length: 43 }, (_, i) => (i + 1).toString());
 
@@ -65,7 +66,9 @@ const TestimonialsCarousel = () => {
             );
         }
         return (
-            <img
+            <Image
+                width={800}
+                height={600}
                 src={testimonial.src}
                 alt={`Testimonio ${testimonial.id}`}
                 className="rounded-lg shadow-lg max-h-96 transition-opacity duration-300"

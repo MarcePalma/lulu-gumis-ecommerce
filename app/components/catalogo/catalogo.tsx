@@ -1,15 +1,23 @@
-"use client"
-import { useState } from 'react';
+'use client';
+
+import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import PostCards from './post';
 import SubNavbar from './subnavbar';
 
 export default function Catalogo() {
+    const searchParams = useSearchParams();
     const [selectedCategory, setSelectedCategory] = useState<string | undefined>(undefined);
+
+    useEffect(() => {
+        const categoryParam = searchParams.get('category');
+        setSelectedCategory(categoryParam || undefined);
+    }, [searchParams]);
 
     return (
         <div>
             <div className="py-20 mt-10">
-                <SubNavbar setSelectedCategory={setSelectedCategory} />
+                <SubNavbar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
             </div>
 
             <div className="text-center">

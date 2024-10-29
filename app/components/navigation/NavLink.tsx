@@ -1,13 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-
-interface NavLinkProps {
-  href: string;
-  title: string;
-  options?: { title: string; path: string }[];
-  onHover?: () => void;
-  className?: string;
-}
+import { NavLinkProps } from '@/app/types/types';
 
 const NavLink: React.FC<NavLinkProps> = ({ href, title, options, onHover }) => {
   return (

@@ -30,6 +30,7 @@ export default function MenuOverlay({ onClose }: MenuOverlayProps) {
               href={link.path}
               title={link.title}
               className="ml-3 text-3xl font-bold text-gray-800 hover:text-pink-600 transition-colors duration-300"
+              onClick={onClose}
             />
           </li>
         ))}
@@ -39,6 +40,7 @@ export default function MenuOverlay({ onClose }: MenuOverlayProps) {
               href="/dashboard"
               title="Dashboard"
               className="ml-3 text-3xl font-bold text-gray-800 hover:text-pink-600 transition-colors duration-300"
+              onClick={onClose}
             />
           </li>
         )}

@@ -9,7 +9,7 @@ export default function LoginPage() {
     const { login } = useUser();
 
     
-    const AUTH_TOKEN = process.env.AUTH_TOKEN;
+    const AUTH_TOKEN = process.env.NEXT_PUBLIC_AUTH_TOKEN;
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();

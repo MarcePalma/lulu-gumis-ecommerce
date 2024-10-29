@@ -7,9 +7,10 @@ import { useUser } from '@/app/userContext/userContext';
 
 const links = [
   { path: '/catalogo', title: 'Catalogo' },
-  { path: '/catalogo/amigurumis', title: 'Amigurumis' },
-  { path: '/catalogo/flores', title: 'Flores' },
-  { path: '/catalogo/ropa', title: 'Ropa' },
+  { path: '/catalogo?category=Amigurumis', title: 'Amigurumis' },
+  { path: '/catalogo?category=Flores', title: 'Flores' },
+  { path: '/catalogo?category=Accesorios', title: 'Accesorios' },
+  { path: '/catalogo?category=Vestuario', title: 'Vestuario' },
 ];
 
 export default function MenuOverlay({ onClose }: MenuOverlayProps) {

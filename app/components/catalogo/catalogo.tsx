@@ -8,7 +8,7 @@ export default function Catalogo() {
 
     return (
         <div>
-            <div className="py-20 mt-20">
+            <div className="py-20 mt-10">
                 <SubNavbar setSelectedCategory={setSelectedCategory} />
             </div>
 

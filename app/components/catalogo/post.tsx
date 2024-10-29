@@ -16,7 +16,7 @@ export default function PostCards({ category }: PostCardsProps) {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const timer = setTimeout(() => setLoading(false), 300);
+        const timer = setTimeout(() => setLoading(false), 500);
         return () => clearTimeout(timer);
     }, []);
 
@@ -50,7 +50,7 @@ export default function PostCards({ category }: PostCardsProps) {
                                 className="group relative block overflow-hidden rounded-lg shadow-lg hover:shadow-2xl transition-shadow duration-300 max-w-xs mx-auto"
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: post.id * 0.1 }} // retrasa cada post
+                                transition={{ duration: 0.5, delay: post.id * 0.1 }}
                             >
                                 <Image
                                     width={600}
@@ -61,7 +61,7 @@ export default function PostCards({ category }: PostCardsProps) {
                                 />
                                 <div className="relative border border-gray-100 bg-white p-6">
                                     <h3 className="mt-4 text-lg font-semibold text-gray-900">{post.name}</h3>
-                                    <p className="mt-1.5 text-sm text-gray-700">${post.price}</p>
+                                    <p className="mt-1.5 text-sm text-gray-700">${post.price}CLP</p>
                                 </div>
                             </motion.a>
                         ))

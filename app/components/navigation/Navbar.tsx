@@ -52,7 +52,7 @@ export default function Navbar() {
             alt="Logo"
           />
           <span className="ml-3 text-2xl font-bold text-gray-800 hover:text-pink-500 transition-colors duration-300">
-            Amigurumis
+            LuluGumis
           </span>
         </Link>
         <div className="flex items-center md:hidden">

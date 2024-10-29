@@ -8,15 +8,16 @@ const SubNavbar: React.FC<SubNavbarProps> = ({ setSelectedCategory }) => {
     const categories = [
         { title: 'Amigurumis' },
         { title: 'Flores' },
-        { title: 'Ropa' },
+        { title: 'Accesorios' },
+        { title: 'Vestuario' },
     ];
 
     return (
-        <div className="bg-white shadow-md"> 
-            <div className="container mx-auto flex justify-between items-center py-2 px-4">
+        <div className="bg-pink-50 shadow-md"> 
+            <div className="container mx-auto flex justify-between items-center py-3 px-4">
                 <span 
                     onClick={() => setSelectedCategory(undefined)} 
-                    className="text-gray-800 hover:text-pink-500 transition-colors duration-300 cursor-pointer"
+                    className="text-pink-600 hover:text-pink-800 transition-colors duration-300 cursor-pointer font-semibold"
                 >
                     Todos
                 </span>
@@ -24,7 +25,7 @@ const SubNavbar: React.FC<SubNavbarProps> = ({ setSelectedCategory }) => {
                     <span 
                         key={index} 
                         onClick={() => setSelectedCategory(category.title)}
-                        className="text-gray-800 hover:text-pink-500 transition-colors duration-300 cursor-pointer"
+                        className="text-pink-600 hover:text-pink-800 transition-colors duration-300 cursor-pointer font-semibold"
                     >
                         {category.title}
                     </span>

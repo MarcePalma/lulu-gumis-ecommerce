@@ -1,17 +1,27 @@
-"use client";
+'use client';
 import { useState } from 'react';
 import { useUser } from '../userContext/userContext';
 
 export default function LoginPage() {
     const [inputToken, setInputToken] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccessMessage] = useState('');
     const { login } = useUser();
+
+    
+    const AUTH_TOKEN = process.env.AUTH_TOKEN;
 
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
         if (inputToken) {
-            login(inputToken);
-            setSuccessMessage('¡Sesión iniciada correctamente!');
+            if (inputToken === AUTH_TOKEN) {
+                login(inputToken);
+                setSuccessMessage('¡Sesión iniciada correctamente!');
+                setErrorMessage('');
+            } else {
+                setErrorMessage('Token incorrecto. Intenta de nuevo.');
+                setSuccessMessage('');
+            }
         }
     };
 
@@ -32,12 +42,18 @@ export default function LoginPage() {
                 </div>
                 <button type="submit" className='w-full p-3 bg-pink-400 text-white font-semibold rounded-md hover:bg-pink-500 transition'>Iniciar Sesión</button>
             </form>
-
-            {successMessage && (
-                <div className="mt-4 text-center text-green-600">
-                    {successMessage}
-                </div>
-            )}
+            <div className="mt-4 text-center">
+                {successMessage && (
+                    <div className="text-green-600">
+                        {successMessage}
+                    </div>
+                )}
+                {errorMessage && (
+                    <div className="text-red-600">
+                        {errorMessage}
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

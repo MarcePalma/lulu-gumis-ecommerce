@@ -43,7 +43,7 @@ const AddPost = () => {
                     image: imageUrl,
                     price: Number(price),
                     category,
-                    publicId, // Incluir public_id en el envío
+                    publicId,
                 }),
             });
 
@@ -101,8 +101,9 @@ const AddPost = () => {
                 <select value={category} onChange={handleCategoryChange} className='mt-2 block w-full border border-pink-300 rounded-md focus:outline-none'>
                     <option value="">Seleccione una categoría</option>
                     <option value="Amigurumis">Amigurumis</option>
-                    <option value="Ropa">Ropa</option>
+                    <option value="Accesorios">Accesorios</option>
                     <option value="Flores">Flores</option>
+                    <option value="Vestuario">Vestuario</option>
                 </select>
             </div>
             <button type="submit" className='w-full p-3 bg-pink-400 text-white font-semibold rounded-md hover:bg-pink-500 transition'>

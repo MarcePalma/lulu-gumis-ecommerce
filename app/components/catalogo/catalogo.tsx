@@ -15,8 +15,8 @@ export default function Catalogo() {
     }, [searchParams]);
 
     return (
-        <Suspense fallback={<div>Cargando...</div>}>
-            <div>
+        <div>
+            <Suspense fallback={<div>Cargando...</div>}>
                 <div className="py-20 mt-10">
                     <SubNavbar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
                 </div>
@@ -29,7 +29,7 @@ export default function Catalogo() {
                     </h1>
                     <PostCards category={selectedCategory} />
                 </div>
-            </div>
-        </Suspense>
+            </Suspense>
+        </div>
     );
 }

@@ -6,14 +6,12 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import MenuOverlay from './MenuOverlay';
 import Image from 'next/image';
 import { useUser } from '@/app/userContext/userContext';
-import { useRouter } from 'next/router'; // Importa useRouter
 
 export default function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [hoverTimeout, setHoverTimeout] = useState<NodeJS.Timeout | null>(null);
   const { isAuthenticated } = useUser();
-  const router = useRouter(); // Usa el hook useRouter
 
   const navLinks = [
     {
@@ -41,18 +39,6 @@ export default function Navbar() {
     setHoverTimeout(timeout);
   };
 
-  // Cierra el menú al navegar a otra página
-  useEffect(() => {
-    const handleRouteChange = () => {
-      setNavbarOpen(false); // Cierra el menú
-    };
-
-    router.events.on('routeChangeComplete', handleRouteChange); // Escucha el cambio de ruta
-
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange); // Limpia el evento al desmontar
-    };
-  }, [router.events]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-20 bg-pink-200 shadow-lg">
@@ -90,6 +76,7 @@ export default function Navbar() {
                   title={link.title}
                   options={dropdownOpen ? link.options : []}
                   onHover={handleMouseEnter}
+                  onClick={() => setNavbarOpen(false)}
                 />
               </li>
             ))}

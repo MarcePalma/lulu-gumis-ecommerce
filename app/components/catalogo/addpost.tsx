@@ -31,7 +31,7 @@ const AddPost = () => {
         try {
             const cloudinaryResponse = await axios.post(`https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`, formData);
             const imageUrl = cloudinaryResponse.data.secure_url;
-            const publicId = cloudinaryResponse.data.public_id; // Obtener el public_id
+            const publicId = cloudinaryResponse.data.public_id; 
 
             await fetch('/api/items/create', {
                 method: 'POST',
@@ -87,13 +87,23 @@ const AddPost = () => {
             <div className='mb-6'>
                 <label className='block text-sm font-medium text-pink-700'>
                     Imagen:
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={handleImageChange}
-                        required
-                        className='mt-1 block w-full border border-pink-300 rounded-md focus:outline-none'
-                    />
+                    <div className="mt-1 flex items-center">
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            required
+                            className="hidden"
+                            id="file-upload"
+                        />
+                        <label
+                            htmlFor="file-upload"
+                            className="cursor-pointer px-4 py-2 bg-pink-400 text-white rounded-md hover:bg-pink-500 transition"
+                        >
+                            Seleccionar archivo
+                        </label>
+                        {image && <span className="ml-3 text-pink-700">{image.name}</span>}
+                    </div>
                 </label>
             </div>
             <div className='mb-6'>

@@ -14,7 +14,7 @@ export default function Dashboard() {
         <div className="flex flex-col justify-between border-e bg-#121212 py-24 p-4">
             <div>
                 <span className="grid h-10 w-32 place-content-center rounded-lg bg-#121212 text-xs text-gray-600">
-                    <Image src={"/images/logo.webp"} width={70} height={70} alt='Logo' />
+                    <Image src={"/images/LOGO.webp"} width={70} height={70} alt='Logo' />
                 </span>
 
                 <ul className="mt-6 space-y-1">
